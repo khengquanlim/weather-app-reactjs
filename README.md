@@ -14,6 +14,9 @@ If you are developing a production application, we recommend using TypeScript wi
 ### Steps to run project
 
 > npm install
+> npm install tailwindcss @tailwindcss/vite
 > npm run dev
 
 #### Considerations
+
+1. Opted for tailwind CSS for device adaptability
