@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { LuSearch } from 'react-icons/lu';
 
 const WeatherSearchBar = ({onSearch}) => {
     const [city, setCity] = useState('');
@@ -22,35 +21,36 @@ const WeatherSearchBar = ({onSearch}) => {
     }
 
     return (
-        <form
-            onSubmit={handleSubmit}
-            className="flex w-full rounded-full bg-white/30 dark:bg-black/30 backdrop-blur px-4 py-2 focus-within:ring-2 ring-indigo-400"
-        >
-            <input
-                type="text"
-                placeholder="City"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                className="flex-1 bg-transparent text-white placeholder-white focus:outline-none"
-            />
-            <input
-                type="text"
-                placeholder="Country"
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-                className="w-24 ml-2 bg-transparent text-white placeholder-white focus:outline-none"
-            />
-            <button
-                type="submit"
-                className="ml-2 text-white hover:text-indigo-300"
-                aria-label="Search"
+        <div>
+            <form
+                onSubmit={handleSubmit}
+                className="flex h-12 w-full max-w-lg rounded-full overflow-hidden bg-white/30 dark:bg-black/30 backdrop-blur ring-1 ring-white/40 focus-within:ring-2 focus-within:ring-indigo-400"
             >
-            {isLoading ? '⏳' : <LuSearch className="text-white text-xl" />}
-            </button>
-            {error != "" && (
-                <div className="text-sm text-red-500 text-center">{error}</div>
-            )}
-        </form>
+                <input
+                    type="text"
+                    placeholder="City"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    className="flex-1 pl-4 bg-transparent text-white placeholder-white/60 focus:outline-none"
+                />
+                <input
+                    type="text"
+                    placeholder="Country"
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                    className="w-24 bg-transparent text-white placeholder-white/60 focus:outline-none"
+                />
+                <button
+                    type="submit"
+                    className="h-12 w-12 flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50"
+                    disabled={!city && !country || isLoading}
+                    aria-label="Search"
+                >
+                    {isLoading ? '⏳' : '🔍'}
+                </button>
+            </form>
+        </div>
+        
     );
 }
 

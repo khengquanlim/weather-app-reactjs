@@ -26,12 +26,16 @@ const WeatherPage = () => {
         }
     }
     return (
-        <div className="flex flex-col items-center gap-6 max-w-md w-full mx-auto mt-12 p-4 bg-white/80 dark:bg-black/80 rounded-xl shadow-md">
-            <WeatherSearchBar onSearch={handleSearch} onClear={() => setWeather(null)} />
-            <WeatherInformationForm weather={weather} error={error} />
-            <WeatherSearchHistory weatherHistoryList={weatherHistoryList} 
-                onReSearch={(entry) => handleSearch(entry.city, entry.country)}
-                onDelete={id => setHistory(h => h.filter(x => x.id !== id))} />
+        <div>
+            <div className="absolute top-4 items-center left-1/2 -translate-x-1/2 ">
+                <WeatherSearchBar onSearch={handleSearch} onClear={() => setWeather(null)} />
+            </div>
+            <div className="flex flex-col items-center max-w-2xl w-full mx-auto mt-12 p-4 bg-white/40 dark:bg-white/40 rounded-xl shadow-md">
+                <WeatherInformationForm weather={weather} error={error} />
+                <WeatherSearchHistory weatherHistoryList={weatherHistoryList} 
+                    onReSearch={(entry) => handleSearch(entry.city, entry.country)}
+                    onDelete={id => setHistory(h => h.filter(x => x.id !== id))} />
+            </div>
         </div>
     )
 

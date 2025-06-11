@@ -10,8 +10,8 @@ function App() {
     <>
       <div className={`flex items-center justify-center min-h-screen w-full bg-cover bg-center ${
         theme === 'light'
-          ? "bg-[url('/public/bg-light.png')]"
-          : "bg-[url('/public/bg-dark.png')]"}`}>
+          ? "bg-[url('/bg-light.png')]"
+          : "bg-[url('/bg-dark.png')]"}`}>
           <div className="absolute top-4 right-4 z-50">
             <ThemeToggle theme={theme} setTheme={setTheme} />
           </div>
