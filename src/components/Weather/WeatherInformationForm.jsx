@@ -21,8 +21,8 @@ const WeatherInformationForm = ({ weather }) => {
     const FormattedUpperCaseWeatherDescription = capitalizeFirstLetters(weather.description);
 
     return (
-        <div className="w-full p-4 relative overflow-visible">
-            <div className="flex justify-between items-start">
+        <div className="w-full p-2 relative overflow-visible">
+            <div className="flex justify-between items-start mb-2">
                 <div>
                     <h2 className="font-semibold text-black/90">
                         Today's Weather
@@ -34,9 +34,9 @@ const WeatherInformationForm = ({ weather }) => {
                 </div>
             </div>
 
-            <div className="text-sm text-black/70 mb-4">
-                <div className="text-left">H: {weather.temp_min}°C L: {weather.temp_max}°C</div> 
-                <div className="flex items-center gap-6 whitespace-nowrap overflow-x-auto">
+            <div className="text-sm text-black/70">
+                <div className="text-left mb-2">H: {weather.temp_min}°C L: {weather.temp_max}°C</div> 
+                <div className="flex items-center gap-10 whitespace-nowrap overflow-x-auto">
                     <div>{weather.city}, {weather.country}</div>
                     <div>{formattedTime}</div>
                     <div>Humidity: {weather.humidity}%</div>

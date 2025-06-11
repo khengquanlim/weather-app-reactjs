@@ -34,7 +34,7 @@ const WeatherPage = () => {
                 <WeatherInformationForm weather={weather} error={error} />
                 <WeatherSearchHistory weatherHistoryList={weatherHistoryList} 
                     onReSearch={(entry) => handleSearch(entry.city, entry.country)}
-                    onDelete={id => setHistory(h => h.filter(x => x.id !== id))} />
+                    onDelete={id => setWeatherHistoryList(h => h.filter(x => x.id !== id))} />
             </div>
         </div>
     )
