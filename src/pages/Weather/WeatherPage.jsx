@@ -21,16 +21,17 @@ const WeatherPage = () => {
             setWeather(currentWeatherConditions);
             setWeatherHistoryList(prev => [currentWeatherConditions, ...prev]);
         } catch (error) {
+            console.log("Does it")
             setWeather(null);
             setError(`Unable to retrieve weather for ${city} now, please try again later.`);
         }
     }
     return (
         <div>
-            <div className="absolute top-4 items-center left-1/2 -translate-x-1/2 ">
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 w-full max-w-lg max-md:max-w-sm px-4">
                 <WeatherSearchBar onSearch={handleSearch} onClear={() => setWeather(null)} />
             </div>
-            <div className="flex flex-col items-center max-w-2xl w-full mx-auto mt-12 p-4 bg-white/40 dark:bg-white/40 rounded-xl shadow-md">
+            <div className="flex flex-col items-center max-w-2xl max-md:max-w-sm w-full mx-auto mt-32 px-4 p-4 bg-white/40 dark:bg-white/40 rounded-xl shadow-md">
                 <WeatherInformationForm weather={weather} error={error} />
                 <WeatherSearchHistory weatherHistoryList={weatherHistoryList} 
                     onReSearch={(entry) => handleSearch(entry.city, entry.country)}

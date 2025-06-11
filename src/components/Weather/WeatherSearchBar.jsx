@@ -25,7 +25,7 @@ const WeatherSearchBar = ({onSearch}) => {
         <div>
             <form
                 onSubmit={handleSubmit}
-                className="flex h-12 w-full max-w-lg rounded-full overflow-hidden bg-white/20 backdrop-blur ring-1 ring-white/40 focus-within:ring-2 focus-within:ring-indigo-400"
+                className="flex h-12 w-full rounded-full overflow-hidden bg-white/20 backdrop-blur"
             >
                 <input
                     type="text"
