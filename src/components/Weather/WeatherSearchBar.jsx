@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { LuSearch } from 'react-icons/lu';
 
 const WeatherSearchBar = ({onSearch}) => {
     const [city, setCity] = useState('');
@@ -44,7 +45,7 @@ const WeatherSearchBar = ({onSearch}) => {
                 className="ml-2 text-white hover:text-indigo-300"
                 aria-label="Search"
             >
-                {isLoading ? '⏳' : '🔍'}
+            {isLoading ? '⏳' : <LuSearch className="text-white text-xl" />}
             </button>
             {error != "" && (
                 <div className="text-sm text-red-500 text-center">{error}</div>
