@@ -1,17 +1,29 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getCurrentWeather } from '../../services/WeatherService'
 
 const WeatherPage = () => {
+    const [weather, setWeather] = useState(null);
+    const [weatherHistoryList, setWeatherHistoryList] = useState(() => JSON.parse*localStorage.getItem('weatherHistory') || []);
+    const [error, setError] = useState('');
+    useEffect(() => {
+    }, [])
+
+    handleSearch = async (city, country) => {
+        setError('');
+        try {
+            const currentWeatherConditions = getCurrentWeather(city, country)
+            setWeather(currentWeatherConditions);
+            setWeatherHistoryList(prev => [currentWeatherConditions, ...prev]);
+        } catch (error) {
+            setWeather(null);
+            setError(`Unable to retrieve weather for ${city} now, please try again later.`);
+        }
+    }
     return (
-        <div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <p>
-                Edit <code>src/App.jsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
-            </p>
+        <div className="flex flex-col items-center gap-6 max-w-md w-full mx-auto mt-12 p-4 bg-white/80 dark:bg-black/80 rounded-xl shadow-md">
+        {/* <SearchForm onSearch={handleSearch} onClear={() => setWeather(null)} />
+        <WeatherInformation weather={weather} error={error} />
+        <WeatherSearchHistory weatherHistoryList={weatherHistoryList} onReSearch={setWeather} onDelete={id => setHistory(h => h.filter(x => x.id !== id))} /> */}
         </div>
     )
 
