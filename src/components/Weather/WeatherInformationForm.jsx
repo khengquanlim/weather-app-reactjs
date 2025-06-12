@@ -28,7 +28,7 @@ const WeatherInformationForm = ({ weather }) => {
                 </div>
 
                 {hasWeather && (
-                <div className="absolute -top-20 -right-6 md:right-4 w-48 h-48">
+                <div className="absolute -top-20 max-md:-top-18 -right-0 max-md:-right-2 w-54 max-md:w-36 h-54 max-md:h-36">
                     <img src={weatherImagePath} alt="weather icon" className="w-full h-full object-contain" />
                 </div>
                 )}

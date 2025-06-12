@@ -14,8 +14,7 @@ export const getCurrentWeather = async (city, country) => {
   }
 
   const data = await res.json();
-  console.log(data)
-  console.log(data.weather?.[0]?.icon)
+  
   return {
     id: Date.now(),
     city: data.name,

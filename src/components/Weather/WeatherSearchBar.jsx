@@ -18,6 +18,7 @@ const WeatherSearchBar = ({onSearch, loadCountryCityError}) => {
             setCity('');
             setCountry('');
         });
+        
         setIsLoading(false);
     }
 
