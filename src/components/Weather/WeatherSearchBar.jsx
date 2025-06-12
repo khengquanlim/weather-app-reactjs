@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { LuSearch } from "react-icons/lu";
 
-const WeatherSearchBar = ({onSearch}) => {
+const WeatherSearchBar = ({onSearch, loadCountryCityError}) => {
     const [city, setCity] = useState('');
     const [country, setCountry] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if(!city && !country) {
-            setError('Please ensure you have input either the city or country, thanks');
             return;
         }
+
         setIsLoading(true);
+
         await onSearch(city, country, () => {
-        setCity('');
-        setCountry('');
+            setCity('');
+            setCountry('');
         });
         setIsLoading(false);
     }
@@ -48,9 +48,13 @@ const WeatherSearchBar = ({onSearch}) => {
                     aria-label="Search"
                 >
                     {isLoading ? '⏳' : 
-                        <LuSearch clsasName="text-black" size={18} />}
+                        <LuSearch clsasName="text-black" size={18} />
+                    }
                 </button>
             </form>
+            { loadCountryCityError !== '' && (
+                <div className="mt-2 md:mt-5 bg-white/40 rounded-xl text-red-600">{loadCountryCityError}</div>
+            )}
         </div>
         
     );
